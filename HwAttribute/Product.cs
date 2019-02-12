@@ -3,7 +3,7 @@
 namespace HwAttribute
 {
     [Table(Name = "Urun", Owner = "dbo")]
-    public class Product : IProperty
+    public class Product : IEntity
     {
         [Identity]
         public int ProductId { get; set; }
@@ -13,6 +13,8 @@ namespace HwAttribute
         public double ListPrice { get; set; }
         [Column(Name = "Kategori")]
         public string ProductCategory { get; set; }
+        [Column(Name = "Stokta", Type = DbColumnType.Bool)]
+        public bool InStock { get; set; }
 
     }
 }

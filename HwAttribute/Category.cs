@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using HwAttribute.Attributes;
+﻿using HwAttribute.Attributes;
 
 namespace HwAttribute
 {
     [Table(Name = "Kategoriler", Owner = "dbo")]
-    class Category: IProperty
+    class Category: IEntity
     {
         [Identity]
         public int Id { get; set; }
@@ -16,7 +11,7 @@ namespace HwAttribute
         [Column(Name = "KategoriAdi", Type = DbColumnType.NVarChar)]
         public string Name { get; set; }
 
-        [Column(Name = "Stok", Type = DbColumnType.Int)]
+        [Column(Name = "Stok")]
         public int Stock { get; set; }
     }
 }
