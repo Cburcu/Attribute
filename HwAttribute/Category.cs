@@ -1,9 +1,11 @@
-﻿using HwAttribute.Attributes;
+﻿using System;
+using HwAttribute.Attributes;
 
 namespace HwAttribute
 {
+    [Serializable]
     [Table(Name = "Kategoriler", Owner = "dbo")]
-    class Category: IEntity
+    public class Category: IEntity
     {
         [Identity]
         public int Id { get; set; }

@@ -1,7 +1,9 @@
-﻿using HwAttribute.Attributes;
+﻿using System;
+using HwAttribute.Attributes;
 
 namespace HwAttribute
 {
+    [Serializable]
     [Table(Name = "Urun", Owner = "dbo")]
     public class Product : IEntity
     {

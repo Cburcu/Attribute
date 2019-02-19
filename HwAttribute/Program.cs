@@ -15,6 +15,9 @@ namespace HwAttribute
             StringBuilder stringBuilder = new StringBuilder();
             QueryEngine<IEntity> engineer = new QueryEngine<IEntity>();
 
+            //stringBuilder.AppendLine(engineer.Converter("script", products).ToString());
+
+
             //stringBuilder.AppendLine(engineer.Converter("json", products).ToString());
 
             stringBuilder.AppendLine(engineer.Converter("xml", categories).ToString());
