@@ -12,24 +12,23 @@ namespace HwAttribute.Formatter
     {
         public static string XmlConverter(List<T> parameters)
         {
-            // jsondan ayrılmalı
-            //string json = JsonConvert.SerializeObject(parameter);
-            //var json = JSonFormater<T>.JSonConverter(parameters);
-            //XmlNode doc = JsonConvert.DeserializeXmlNode(json.ToString());
-            //return doc.ToString();
-            var type = parameters.GetType();
-            var typeName = parameters[0].GetType().Name;
-            
-            XmlSerializer xmlSerializer = new XmlSerializer(typeof(List<T>));
+            var type = parameters[0].GetType();
+
+            XmlSerializer xmlSerializer = new XmlSerializer(type);
+            //XmlSerializer xmlSerializer = new XmlSerializer(typeof(List<T>));
+
             var xml = "";
             var sww = new StringWriter();
-            XmlWriter writer = XmlWriter.Create(sww);
+            //XmlWriter writer = XmlWriter.Create(sww);
 
-            //foreach (var parameter in parameters)
-            //{
-                xmlSerializer.Serialize(writer, parameters);
-                xml = sww.ToString();
-            //}
+            xmlSerializer.Serialize(sww, parameters);
+            //xmlSerializer.Serialize(writer, parameters);
+
+
+            //TextWriter xml_write = new StreamWriter("file.xml");
+            //xmlSerializer.Serialize(xml_write, parameters);
+
+            xml = sww.ToString();
 
             return xml;
         }
